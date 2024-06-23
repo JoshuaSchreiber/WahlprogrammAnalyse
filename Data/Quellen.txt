@@ -1,0 +1,8 @@
+AFD:
+- https://www.afd.de/wp-content/uploads/2023/11/2023-11-16-_-AfD-Europawahlprogramm-2024-_-web.pdf
+Volt:
+-https://voltdeutschland.org/storage/assets-de/pdf/europawahl_2024/volt-wahlprogramm-europawahl-2024.pdf
+CDU:
+- https://assets.ctfassets.net/nwwnl7ifahow/476rnHcYPkmyuONPvSTKO2/972e88ceb862ac4d4905d98441555e0c/europawahlprogramm-cdu-csu-2024_0.pdf
+SPD:
+- https://www.spd.de/fileadmin/Dokumente/EuroDel/20240128_Europaprogramm.pdf
