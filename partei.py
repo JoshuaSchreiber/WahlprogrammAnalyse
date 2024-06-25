@@ -9,9 +9,9 @@ class Partei:
         self._wahlprogrammLoc = wahlprogrammLoc
         self._wahlprogramm = self.read_Wahlprogramm()
         self._haeufigsteWoerter = haeufigsteWoerter if haeufigsteWoerter is not None else []
-        self._dreiGramme = dreiGramme if dreiGramme is not None else []
-        self._vierGramme = vierGramme if vierGramme is not None else []
-        self._fuenfGramme = fuenfGramme if fuenfGramme is not None else []
+        self._3Gramme = dreiGramme if dreiGramme is not None else []
+        self._4Gramme = vierGramme if vierGramme is not None else []
+        self._5Gramme = fuenfGramme if fuenfGramme is not None else []
         self._wordCount = wordCount
 
     # Getter and setter for name
@@ -111,9 +111,9 @@ class Partei:
             'wahlProgrammLoc': self.wahlprogrammLoc,
             'wordCount': self.wordCount,
             'haeufigsteWoerter': self.haeufigsteWoerter,
-            'dreiGramme': self.dreiGramme,
-            'vierGramme': self.vierGramme,
-            'fuenfGramme': self.fuenfGramme
+            'dreiGramme': self._3Gramme,
+            'vierGramme': self._4Gramme,
+            'fuenfGramme': self._5Gramme
         }
         with open(json_filename, 'w') as json_file:
             json.dump(data, json_file, indent=4)

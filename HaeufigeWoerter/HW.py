@@ -26,30 +26,27 @@ def count_ngrams(text, n):
 def filter_stopwords(counter, stopwords):
     return Counter({word: count for word, count in counter.items() if word not in stopwords})
 
-def main(partei, stopwords):
+stopwordsFilePath = 'Data/FuellWoerter.txt'
+stopwords = read_stopwords(stopwordsFilePath)
+
+def main(partei):
     text = read_and_clean_text(partei.wahlprogrammLoc)
 
     word_counts = count_words(text)
     partei.wordCount = sum(word_counts.values())
     filtered_word_counts = filter_stopwords(word_counts, stopwords)
 
-    partei.haeufigsteWoerter = [(word, count) for word, count in filtered_word_counts.most_common(100)]
+    partei.haeufigsteWoerter = [(word, count) for word, count in filtered_word_counts.most_common(10)]
 
-    for n in range(3, 6):
+    for n in range(2, 6):
         ngram_counts = count_ngrams(text, n)
         filtered_ngram_counts = filter_stopwords(ngram_counts, stopwords)
-        setattr(partei, f'{n}Gramme', [(ngram, count) for ngram, count in filtered_ngram_counts.most_common(10)])
+
+        attribute_name = f'_{n}Gramme'
+        attribute_value = [(ngram, count) for ngram, count in filtered_ngram_counts.most_common(10)]
+
+        setattr(partei, attribute_name, attribute_value)
 
     # Save data to JSON file
-    partei.save_Data_to_json(f"{partei.name}_data.json")
+    partei.save_Data_to_json(f"HaeufigeWoerter/Results/{partei.name}.json")
 
-# Example usage
-stopwordsFilePath = '../Data/FuellWoerter.txt'
-stopwords = read_stopwords(stopwordsFilePath)
-
-cduCsu = Partei(
-    name="CDUCSU",
-    wahlprogrammLoc="../Data/Wahlprogramme/CDUCSU.txt"
-)
-
-main(cduCsu, stopwords)
